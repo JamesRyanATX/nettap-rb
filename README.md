@@ -23,12 +23,14 @@ Nettap::Http.tap(:after) do |message|
 
   puts "request #{uri.inspect} completed with status #{response.code}"
 end
+
+Net::HTTP.get(URI.parse('https://www.dasheroo.com/'))
 ```
 
 **Results**
 
 ```
-> Net::HTTP.get(URI.parse('https://www.dasheroo.com/'))
+% ruby nettap.rb
 requesting https://www.dasheroo.com/
 request https://www.dasheroo.com/ completed with status 200
 ```
